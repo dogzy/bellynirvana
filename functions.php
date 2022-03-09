@@ -21,7 +21,7 @@ function jr_get_custom_meta(){
 
 	$steps_images_array = array();
 
-	foreach ($import_steps as $key => $value) {
+	foreach ($steps as $key => $value) {
 		$steps_images_array[] = array(
 			'description' => $value,
 			'image' => $steps_images[$key],
@@ -38,6 +38,11 @@ function jr_get_custom_meta(){
 	print_r($ingredients);
 	echo '</pre>';
 
+	echo '<h1>All Meta is</h1>';
+	echo '<pre>';
+	print_r($post_meta);
+	echo '</pre>';
+
 }
 
-add_action('get_footer', 'jr_get_custom_meta');
+add_action('wp_head', 'jr_get_custom_meta');
