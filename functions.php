@@ -7,7 +7,8 @@ function jr_get_custom_meta(){
 	global $post;
 
 
-	$post_meta = get_post_meta($post->ID);
+	$delicious_meta = get_post_meta($post->ID, 'delicious_recipes_metadata', true);
+	$delicious_meta = unserialize($delicious_meta[0]);
 
 
 	$import_ingredients = get_post_meta($post->ID, '_import_ingredients', true);
@@ -38,9 +39,9 @@ function jr_get_custom_meta(){
 	print_r($ingredients);
 	echo '</pre>';
 
-	echo '<h1>All Meta is</h1>';
+	echo '<h1>delicious_meta Meta is</h1>';
 	echo '<pre>';
-	print_r($post_meta);
+	print_r($delicious_meta);
 	echo '</pre>';
 
 }
